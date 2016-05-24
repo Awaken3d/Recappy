@@ -1,0 +1,27 @@
+<div class="jumbotron" ng-if="savedrecipies != 0">
+	<div class="container">
+		<ul class="rig columns-3">
+			<li ng-repeat="listItem in savedrecipies" my-repeat-directive>
+				<a target="_blank" href="{{listItem.recipe.source_url}}">
+					<img src="{{listItem.recipe.image_url}}" />
+					<h3>{{listItem.recipe.title}}</h3>
+				</a>
+				<em>{{listItem.recipe.publisher}}</em><br />
+				<div class="ingredient suggested-ingredient ng-scope ui-link ui-btn ui-btn-inline ui-shadow ui-corner-all ui-mini" ng-click="getIngredient(listItem.recipe.recipe_id)" ng-if="recipes[listItem.recipe.recipe_id] == null">
+					<span class="ng-binding"> Get ingredient</span>
+				</div>
+				<div>
+					<ul>
+						<li ng-repeat="ingredient in recipes[listItem.recipe.recipe_id].ingredients" my-repeat-directive>
+							{{ingredient}}
+						</li>
+					</ul>
+                    
+				</div>
+                
+			</li>
+		</ul>
+	
+	</div>
+	
+</div>

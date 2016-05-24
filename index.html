@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="ultimateRecipes" class="ui-mobile">
+
+<head>
+    <title>Recappy</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./css/font-awesome.css" />
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="./css/themes/Recappy.css" />
+    <link rel="stylesheet" href="./css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/responsive-grid.css" />
+
+
+
+
+    <script src="./angularjs/angular.min.js"></script>
+    <script src="./angularjs/angular-route.js"></script>
+    <script src="./angularjs/angular-animate.min.js"></script>
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="./js/firebase.js"></script>
+    <script src="./js/angularfire.min.js"></script>
+
+
+    <script src="./js/script.js"></script>
+    <script src="./js/services/authentication.js"></script>
+    <script src="./js/controllers/registration.js"></script>
+    <script src="./js/controllers/recipies.js"></script>
+
+</head>
+
+<body ng-controller="mainController">
+    <div data-role="page">
+
+        <div data-role="header" style="text-align: center;">
+            <a id="reset-this" href="./index.html"><img src="img/Recappy.png"></a>
+        </div>
+        <!-- /header -->
+
+        <div role="main" class="ui-content">
+            <div id="main">
+                <div ng-view></div>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <nav id="my-menu">
+            <ul>
+                <li><a href="#home" class="ui-btn ui-corner-all">Get some Recipes!</a></li>
+                <li><a href="#about" class="ui-btn ui-corner-all">About Recappy</a></li>
+                <li><a href="#login" class="ui-btn ui-corner-all" ng-show="!currentUser">Login</a></li>
+                <li><a ng-href="#/saved" class="ui-btn ui-corner-all" ng-show="currentUser">Saved Recipes</a></li>
+                <div ng-controller="RegistrationController">
+                    <li><a ng-href="#/login" class="ui-btn ui-corner-all" ng-show="currentUser" ng-click="logout()">Logout</a></li>
+                </div>
+
+
+    
+
+
+
+    </ul>
+    </nav>
+
+    <div data-role="footer" data-theme="a" style="text-align: center;">
+        <img src="img/Recappy.png"></img>
+    </div>
+    <!-- /footer -->
+    </div>
+
+</body>
+
+
+</html>
